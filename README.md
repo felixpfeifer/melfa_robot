@@ -199,20 +199,6 @@ $ rqt -s rqt_joint_trajectory_controller/JointTrajectoryController
 
 <img src="img/rqt_1.png" width="200x"> rqt_joint_trajectory_controller
 
-## MoveIt!
-
-You can try MoveIt! Rviz plug-in.
-
-```
-$ roslaunch rv7fl_moveit_config moveit_planning_execution.launch 
-```
-
-Currently there are moveit_config packages for the following robot.
-
-<img src="img/moveit_rv4fl.png" width="300x"> RV4FL
-
-<img src="img/moveit_rv7fl.png" width="300x"> RV7FL
-
 # License
 
 - [YOODS Inc.](https://www.yoods.co.jp/) holds the copyright of all
