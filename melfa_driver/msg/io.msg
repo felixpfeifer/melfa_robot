@@ -1,0 +1,3 @@
+bool sending_inputs
+bool reading_inputs
+uint16 values

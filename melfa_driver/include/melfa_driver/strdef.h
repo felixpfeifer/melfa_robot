@@ -18,13 +18,14 @@
 //***************************************************************
 // strdef.h
 #include <stdint.h>
+
 #define VER_H7
 /********************************************************/
 /* Joint coordinate system (unused axes are set to 0) */
 /* For details of each component, refer to the instruction manuals that come with each robot */
 /* Refer to the instruction manual that comes with each robot */
 /********************************************************/
-typedef struct{
+typedef struct {
     float j1; // J1 axis angle (radians)
     float j2; // J2-axis angle (radians)
     float j3; // J3-axis angle (radians)
@@ -39,7 +40,7 @@ typedef struct{
 /* For details of each component, please refer to the instruction manuals that come with each robot */ /*
 /* Refer to the instruction manual supplied with each robot */ /*
 /********************************************************/
-typedef struct{
+typedef struct {
     float x; // X-axis coordinate value (mm)
     float y; // Y-axis coordinate value (mm)
     float z; // Z-axis coordinate value (mm)
@@ -49,7 +50,7 @@ typedef struct{
     float l1; // additional axis 1 (mm or radians)
     float l2; // additional axis 2 (mm or radians)
 } WORLD;
-typedef struct{
+typedef struct {
     WORLD w;
     uint32_t sflg1; // structure flag 1
     uint32_t sflg2; // structure flag 2
@@ -59,7 +60,7 @@ typedef struct{
 /* Pulse coordinate system (unused axes should be 0) */ /*
 /* Coordinates of each joint in terms of motor pulse values */
 /********************************************************/
-typedef struct{
+typedef struct {
     int32_t p1; // Motor 1 axis
     int32_t p2; // motor 2 axis
     int32_t p3; // motor axis 3
