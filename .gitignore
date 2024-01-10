@@ -49,3 +49,5 @@ CATKIN_IGNORE
 # Clion 
 .idea
 cmake-build-debug
+
+.vscode/

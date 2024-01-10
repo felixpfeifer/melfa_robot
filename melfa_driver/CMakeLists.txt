@@ -7,16 +7,31 @@ find_package(catkin REQUIRED COMPONENTS
   controller_manager
   diagnostic_updater
   hardware_interface
+  message_generation
+  std_msgs
+  rospy
   roscpp)
 
 find_package(Boost REQUIRED COMPONENTS system thread)
 
 # catkin_python_setup()
+## Generate messages in the 'msg' folder
+add_message_files(
+  FILES
+  io.msg
+)
+## Generate added messages and services with any dependencies listed here
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 catkin_package(
   CATKIN_DEPENDS roscpp
   INCLUDE_DIRS include
 )
+
+
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 

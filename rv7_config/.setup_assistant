@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: melfa_description
+    relative_path: urdf/rv7fl.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/rv7fl.srdf
+  CONFIG:
+    author_name: Felix Pfeifer
+    author_email: fpfeifer@stud.hs-heilbronn.de
+    generated_timestamp: 1701854479

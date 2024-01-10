@@ -13,10 +13,13 @@
   <url type="bugtracker">https://github.com/felixpfeifer/melfa_robot/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
   <depend>controller_manager</depend>
   <depend>diagnostic_updater</depend>
   <depend>hardware_interface</depend>
   <depend>roscpp</depend>
+  <depend>rospy</depend>
   <exec_depend>joint_state_controller</exec_depend>
   <exec_depend>joint_trajectory_controller</exec_depend>
   <exec_depend>position_controllers</exec_depend>
