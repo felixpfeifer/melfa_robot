@@ -3,16 +3,21 @@
 import rospy
 from melfa_driver.msg import io
 
-IO_data= 0
+IO_data = 0
+bitnumber = 8 # number of the target io bit
+startingbit = 64 # Sets the first bit of the 16 io register bit at postion 0
+
 def callback(io_msg: io):
     global IO_data
     IO_data =  io_msg.values
 
 def sendToRobot(iodata:int):
     io_msgs = io() 
-    io_msgs.values = 2 ** 8 * iodata
+    
+    io_msgs.values = (1 << bitnumber) * iodata # Sets the iodata on bitnumber of the io register
     io_msgs.sending_inputs = 0
     io_msgs.reading_inputs = 0
+    io_msgs.startingBit = startingbit
     pub.publish(io_msgs)
     
 if __name__ == '__main__':

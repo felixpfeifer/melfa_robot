@@ -41,16 +41,18 @@ public:
 
     void diagnose(diagnostic_updater::DiagnosticStatusWrapper &stat);
 
+    /*****************************************************
+    * Added IO Support 
+    */
     uint16_t read_IO_Value(void);
-
     uint8_t read_IO_return_type(void);
-
     uint8_t read_IO_sending_type(void);
-
+    uint8_t read_startingBit(void);
     void write_IO_sending_Type(uint8_t type);
     void write_IO_reading_Type(uint8_t type);
-
     void write_IO_sending_value(uint16_t value);
+    void write_startingBit(uint8_t bit_number);
+   /*****************************************************/
 
     inline ros::Duration getPeriod() {
         return ros::Duration(period_);
@@ -89,11 +91,11 @@ private:
     // 16 for the second row of inputs 16 to 31
     // 0 for the first ones from 0 to 15
     uint16_t returnIoData = 0;
-    const uint8_t topBit = 64;
+    uint8_t topBit = 64;
     uint16_t sendingType = MXT_IO_IN;
     uint16_t readingType = MXT_IO_IN;
     uint16_t ioData = 0;
-    uint16_t bitmask = 0xffff;
+    uint16_t bitmask = 0;
     uint16_t hasWritten = 0;
     
 

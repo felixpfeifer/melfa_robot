@@ -102,13 +102,15 @@ void MelfaHW::write(void) {
     send_buff_.RecvType1 = MXT_TYP_FJOINT;
     send_buff_.RecvType2 = MXT_TYP_FB_JOINT;
     send_buff_.RecvType3 = MXT_TYP_FBKCUR;
-    // IO Support
-    send_buff_.SendIOType = MXT_IO_OUT;   
-    send_buff_.RecvIOType = MXT_IO_OUT;
-    send_buff_.BitTop = 16;
-    send_buff_.BitMask = 0xffff;
+    /****************************************************
+     * IO Support
+     * */
+    send_buff_.SendIOType = sendingType;   
+    send_buff_.RecvIOType = readingType;
+    send_buff_.BitTop = topBit;
+    send_buff_.BitMask = bitmask;
     send_buff_.IoData = ioData;
-
+    /****************************************************/
     send_buff_.dat.jnt.j1 = cmd[0];
     send_buff_.dat.jnt.j2 = cmd[1];
     send_buff_.dat.jnt.j3 = cmd[2];
@@ -215,6 +217,14 @@ void MelfaHW::diagnose(diagnostic_updater::DiagnosticStatusWrapper &stat) {
     stat.add("Period", diff);
 }
 
+void MelfaHW::write_startingBit(uint8_t bit_number) {
+    topBit = bit_number;
+}
+
+uint8_t MelfaHW::read_startingBit() {
+    return topBit;
+}
+
 uint8_t MelfaHW::read_IO_return_type(void) {
     return readingType;
 }
@@ -232,6 +242,7 @@ void MelfaHW::write_IO_reading_Type(uint8_t type) {
 
 void MelfaHW::write_IO_sending_value(uint16_t value) {
     ioData = value;
+    bitmask = value;
 }
 uint16_t MelfaHW::read_IO_Value(void)
 {
