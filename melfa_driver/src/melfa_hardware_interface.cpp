@@ -191,10 +191,11 @@ void MelfaHW::read(void) {
                 cmd[i] = pos[i];
             }
         }
-
+        /**********************************************************/
         // IO Reading
         returnIoData = recv_buff_.IoData;
         readingType = recv_buff_.RecvIOType;
+        /**********************************************************/
 
         counter_++;
     } else {
@@ -216,7 +217,7 @@ void MelfaHW::diagnose(diagnostic_updater::DiagnosticStatusWrapper &stat) {
     }
     stat.add("Period", diff);
 }
-
+/**********************************************************/
 void MelfaHW::write_startingBit(uint8_t bit_number) {
     topBit = bit_number;
 }
@@ -248,3 +249,4 @@ uint16_t MelfaHW::read_IO_Value(void)
 {
     return returnIoData;
 }
+/**********************************************************/

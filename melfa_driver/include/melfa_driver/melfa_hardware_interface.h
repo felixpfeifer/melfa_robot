@@ -87,7 +87,7 @@ private:
     double pos[JOINT_NUM];
     double vel[JOINT_NUM];
     double eff[JOINT_NUM];
-
+    /**********************************************************/
     // 16 for the second row of inputs 16 to 31
     // 0 for the first ones from 0 to 15
     uint16_t returnIoData = 0;
@@ -97,6 +97,6 @@ private:
     uint16_t ioData = 0;
     uint16_t bitmask = 0;
     uint16_t hasWritten = 0;
+    /**********************************************************/
     
-
 };

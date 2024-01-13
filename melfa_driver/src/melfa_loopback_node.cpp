@@ -199,7 +199,6 @@ int main(int argc, char **argv) {
     // init ROS node
     ros::init(argc, argv, "melfa_loopback");
     ros::NodeHandle nh;
-    ros::Publisher pub = nh.advertise<melfa_driver::io>("/ios",1000);
     // Parameters
     bool realtime;
     ros::param::param<bool>("~realtime", realtime, false);

@@ -32,7 +32,7 @@
 
 MelfaHW* _robot;
 
-
+/****************************************************/
 void callback_io(const melfa_driver::io::ConstPtr& io_msg)
 {
     if (io_msg->sending_inputs == 1)
@@ -56,6 +56,7 @@ void callback_io(const melfa_driver::io::ConstPtr& io_msg)
     
 
 }
+/****************************************************/
 
 int main(int argc, char **argv) {
     // init ROS node
@@ -104,13 +105,15 @@ int main(int argc, char **argv) {
     // write first setting packet
     robot.write_first();
     int counter;
+    /****************************************************/
     // Create a publischer for io msg
     ros::Subscriber sub = nh.subscribe<melfa_driver::io>("/io_controller",1,callback_io);
     ros::Publisher pub = nh.advertise<melfa_driver::io>("/io_robot",1);
+    /****************************************************/
     while (ros::ok()) {
         // Wait for reciving a packet
         robot.read();
-        
+        /****************************************************/
         // Read IO Message if pressent
         melfa_driver::io io_msg;
         io_msg.values = robot.read_IO_Value();
@@ -123,7 +126,7 @@ int main(int argc, char **argv) {
         }
 
         pub.publish(io_msg);
-        
+        /****************************************************/
 
         cm.update(ros::Time::now(), robot.getPeriod());
 
